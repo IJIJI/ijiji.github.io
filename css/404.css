@@ -1,0 +1,68 @@
+
+
+
+
+div.errorBox{
+  position: absolute;
+  width: 40vw;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: var(--main-content-color);
+  box-shadow: 20px 10px 20px rgb(0,0,0,0.2);
+  border-radius: 5px;
+  
+  padding: 40px;
+  margin: 0;
+}
+
+.errorBox h2{
+  font-size: 1.2vw;
+
+  margin: 0;
+  padding: 0;
+
+  line-height: 1vw;
+}
+
+
+.errorBox h1{
+  font-size: 13vw;
+  
+  margin: 0;
+  padding: 0;
+
+  line-height: 12vw;
+}
+
+.errorBox h3{
+  font-size: 1.2vw;
+
+  margin: 0;
+  padding-top: 1vw;
+
+  line-height: 1.2vw;
+}
+
+@media screen and (max-width: 800px) {
+  div.errorBox {
+    width: 100vw;
+    background-color: var(--main-body-color);
+    box-shadow: 0 0 0;
+  }
+  .errorBox h2{
+    font-size: 7vw;
+    line-height: 6.5vw;
+  }
+  .errorBox h1{
+    font-size: 40vw;
+    line-height: 35vw;
+  }
+  .errorBox h3{
+    font-size: 5vw;
+    line-height: 9vw;
+  }
+  
+}

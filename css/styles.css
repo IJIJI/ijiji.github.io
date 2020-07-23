@@ -1,0 +1,115 @@
+
+/* test */
+:root {
+  --main-color: rgb(73, 73, 73);
+  --main-bg-color: rgb(231, 230, 230);
+  --main-body-color: rgb(245, 241, 237);
+  --main-content-color: rgb(221, 221, 221);
+  --main-dark-content: rgb(223, 223, 223);
+
+  --main-text-color: black;
+  --main-sd-color: rgba(0,0,0,0.6);
+  --main-ac-color: rgb(33, 83, 175);
+  --main-mobile-color: rgba(0,0,0,0.9);
+
+  --button-grey-background: rgb(184, 184, 184);
+
+}
+[data-theme="dark"] {
+
+  --main-color: rgb(41, 41, 41);
+  --main-bg-color: rgb(70, 70, 70);
+  --main-body-color: rgb(59, 59, 59);
+  --main-content-color: rgb(71, 71, 71); 
+  --main-dark-content: rgb(61, 61, 61); 
+
+  --main-text-color: white;
+  --main-sd-color: rgba(0,0,0,0.6);
+  --main-ac-color: rgb(0, 99, 212);
+  --main-mobile-color: rgba(0,0,0,0.9);
+
+  --button-grey-background: #383838;
+
+
+}
+::selection{
+  color: white;
+  background: var(--main-ac-color);
+}
+::-moz-selection{
+  color: white;
+  background: var(--main-ac-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: lightgray;
+}
+::-webkit-scrollbar-thumb {
+  background: gray; 
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgb(61, 61, 61); 
+}
+
+
+body 
+{
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif; 
+  background-color: var(--main-body-color);
+  color: var(--main-text-color);
+}
+
+
+/*? For Buttons */
+
+.textButton{
+  color: var(--main-ac-color);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  padding: 1px 5px;
+  border-radius: 3px;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+}
+
+.textButton:hover{
+  background-color: var(--main-ac-color);
+  color: white;
+  cursor: pointer;
+}
+
+
+.textButtonGrey{
+  color: var(--main-text-color);
+  background-color: var(--button-grey-background);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  padding: 1px 5px;
+  border-radius: 3px;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+}
+
+.textButtonGrey:hover{
+  background-color: var(--main-ac-color);
+  color: white;
+  cursor: pointer;
+}
+
+
+/*?This is for checkboxes*/
+
+
+
+
+
+
+

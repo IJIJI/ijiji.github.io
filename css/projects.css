@@ -1,0 +1,132 @@
+
+body {
+  text-align: center;
+}
+
+h1.projectHeader {
+  font-size: 3vw;
+}
+
+
+
+div.projectGrid{
+  display: grid;
+  width: 90vw;
+  margin: auto;
+  /* margin-top: 10vh; */
+  grid-template-columns: repeat(4, calc(90vw/4));
+  
+  
+}
+
+.projectGrid div{
+  text-align: center;
+  /* border: 1px red solid; */
+  height: calc(90vw/4);
+  margin: 0;
+  padding: 0;
+}
+
+
+div.projectContainer {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  
+}
+
+div.projectContainer a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+div.projectOverlay{
+  display: block;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 60%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+
+div.projectContainer img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: auto;
+
+  transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+
+  border-radius: 4px;
+}
+@media screen and (min-width: 1300px) {
+  div.projectContainer:hover img {
+    width: 83%;
+    height: auto;
+    filter: blur(0.5px) grayscale(70%) brightness(30%);
+    border-radius: 20px;
+    cursor: pointer;
+
+  }
+  div.projectContainer:hover div {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 1300px) {
+  h1.projectHeader {
+    font-size: 5vw;
+  }
+  div.projectGrid{
+    width: 90vw;
+    grid-template-columns: repeat(3, calc(90vw/3));
+  }
+  .projectGrid div{
+    height: calc(90vw/3);
+  }
+
+
+  div.projectContainer img {
+    width: 83%;
+    height: auto;
+    filter: blur(0.5px) grayscale(70%) brightness(30%);
+    border-radius: 20px;
+    cursor: pointer;
+
+  }
+  div.projectContainer div {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 600px) {
+  h1.projectHeader {
+    font-size: 12vw;
+  }
+  div.projectGrid{
+    width: 100vw;
+    grid-template-columns: auto;
+  }
+  .projectGrid div{
+    height: 100vw;
+  }
+
+
+  div.projectContainer img {
+    width: 83%;
+    height: auto;
+    filter: blur(0.5px) grayscale(70%) brightness(30%);
+    border-radius: 20px;
+    cursor: pointer;
+
+  }
+  div.projectContainer div {
+    opacity: 1;
+  }
+}
