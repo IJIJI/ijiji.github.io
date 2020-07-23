@@ -37,7 +37,7 @@ div.projectContainer {
 }
 
 div.projectContainer a {
-  color: var(--main-text-color);
+  color: white;
   text-decoration: none;
 }
 
