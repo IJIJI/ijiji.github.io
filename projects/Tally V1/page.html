@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <link rel="shortcut icon" href="\img\LOGO.ico" type="image/x-icon"/> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="\css\styles.css">
+  <link rel="stylesheet" href="\css\navbar.css">
+  <link rel="stylesheet" href="\css\projects.css">
+  <link rel="stylesheet" href="\css\page.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="javascript\jquery-3.5.1.min.js"></script>
+
+
+  <title>Tally V1 - IJssel koster</title>
+  <meta name="description" content="At my school we needed tally lights for our ATEM video switcher. Commercially available options where incredibly expensive, so I built my own.">
+
+  <meta property="og:title" content="Tally V1 - IJssel koster">
+  <meta property="og:description" content="At my school we needed tally lights for our ATEM video switcher. Commercially available options where incredibly expensive, so I built my own.">
+  <meta property="og:url" content="http://ijiji.github.io/projects/Tally%20V1/page.html">
+  <meta property="og:image" content="\projects\Tally V1\img\blah.png">
+
+  <meta name="keywords" content="IJ Koster, IJssel, IJssel Koster, ATEM, Blackmagic Design, 3D design, C++, Tally Lights, Tally, Camera, camera, arduino, v1">
+  <meta name="author" content="IJ Koster">
+
+</head> 
+
+<body style="overflow-x: hidden;">
+  
+  <nav>
+    <ul class="nav">
+      
+      <li class="nav"><a class="nav" id="index" href="/index.html">Projects</a></li>
+      <li class="nav"><a class="nav" id="contact" href="/contact.html">Contact</a></li>
+      
+      <label class="darkModeSwitch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="darkModeSlider"></div>
+      </label>
+    </ul>
+  </nav>
+  <main>
+    <header>
+      <h1>Tally V1</h1>
+      <div class="modalBadge">
+        <img src="https://img.shields.io/badge/30/6/2020-4f4f4f"></img>
+        <a href="/contact.html"><img src="https://img.shields.io/badge/Developer-IJssel%20Koster-blue?style=flat"></a>
+        <img src="https://img.shields.io/badge/School-red?style=flat">
+        <a target="_Blank"href="https://www.thingiverse.com/thing:4504603"><img src="https://img.shields.io/badge/Thingiverse-%23248bfb"></a>
+      </div>
+    </header>
+    <section>
+      <p>At my school we started a weekly livestream. In the beginning this was only DJing. With the whole COVID-19 situations music lessons couldn't continue so we started also doing acts. It grew pretty fast and we upgraded to a Blackmagic design video switcher. As soon as we started having more staff, including a presenter we started encountering problems with knowing which camera was live. This is where I started searching for tally lights. Commercially available units,<a target="_Blank" href="http://www.tally-lights.com/products/tally-lights" class="textButton">like this one,</a>where not only <b>VERY</b> expensive</b>, but also kinda... Ugly. So as you'll probably have guessed, I built my own.</p>
+
+      <p>When I started researching ways to interface with the ATEM switcher, two options stood out.<a target="_Blank" href="https://www.skaarhoj.com/" class="textButton">SKAARHOJ,</a>a company that makes live video gear for, among other things, ATEM switchers, have a great Arduino library for interfacing with ATEM switchers. I didn't decide to go for this option as it would take much more time than the second option:<a target="_Blank" href="https://www.tbdproductions.com.au/software/" class="textButton">A system based on raspbian made by TBD productions</a>that was pretty much plug and play. I chose this as I wouldn't get the Arduino library working and as easily configurable in the short time I had. One thing to note is that I will be making a V2 based on Arduino as some functions like wireless connectivity between lights would be very nice to have (hence the V1 in the name).</p>
+
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Tally V1\img\blah.png"><img src="\projects\Tally V1\img\blah.png" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+
+      <p>I started of by designing the lights themselves. They consist of two 12v 60 led/meter rgb led strips pointing in opposite directions. it also has a diffusor. Due to COVID-19 3d printer filament has been out of stock a lot, so I ended up using a cool white that didn't diffuse as well as the eSun PLA+ I normally would use (See the picture below). I added jack connectors to the feet of them, to connect them to the Raspberry Pi. This ended up causing heaps of problems as they short out when you connect and disconnect them. I solved this by adding a 100Ω resistor between the lights and 12v. If there is a short, the resistor will just get hot, which during a short period of time isn't a problem. The downside of this, is that the total amount of current is limited, so the lights slightly dim when you have two on. This would be solved by having a 100Ω resistor per light.</p>
+
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Tally V1\img\IMG_20200614_231128.jpg" ><img src="\projects\Tally V1\img\IMG_20200614_231128.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Tally V1\img\IMG_20200614_224138.jpg" ><img src="\projects\Tally V1\img\IMG_20200614_224138.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Tally V1\img\IMG_20200531_221459.jpg" ><img src="\projects\Tally V1\img\IMG_20200531_221459.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+      <p>For the control box I chose to go with a Raspberry Pi 1a. This is what I had on hand and there really is no reason to go for something more powerfull. The Raspberry Pi outputs 5 volt and as the led strips need 12v, I added a transistor bank with a 1kΩ resistor between the gpio and transistor base. I used a 5v power supply so I also needed to use a boost converter, to get the 12v required for the leds. In typical me fashion this all ended up way to compact, making it barely fit in the box.</p>
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Tally V1\img\IMG_20200617_143058.jpg" ><img src="\projects\Tally V1\img\IMG_20200617_143058.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Tally V1\img\IMG_20200613_234836.jpg" ><img src="\projects\Tally V1\img\IMG_20200613_234836.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Tally V1\img\Annotation 2020-06-28 121305.png" ><img src="\projects\Tally V1\img\Annotation 2020-06-28 121305.png" class="modalImage" style="width: 100%;"></img></a>
+        
+      </div>
+      <p>It all ended up working out quite well. The biggest downside is that if one light (that is powered on) has a short circuit, all lights turn off. This is a bad thing as you essentially have a short short circuit every time you disconnect or reconnect a light (that is powered on). This can be easily fixed by instead of adding a 100Ω resistor between 12v and all the lights, adding a resistor per light. As I mentioned before, I will be making a more sophisticated V2, that includes wireless connectivity and probably some osc features. All the files for the lights are available on<a target="_Blank" href="https://www.thingiverse.com/thing:4504603" class="textButton">Thingiverse.</a></p>
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Tally V1\img\IMG_20200613_234849.jpg" ><img src="\projects\Tally V1\img\IMG_20200613_234849.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+    </section>
+  </main>
+
+
+<script src="\javascript\darkMode.js"></script>
+</body>
+</html>

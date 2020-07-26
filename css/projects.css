@@ -3,7 +3,7 @@ body {
   text-align: center;
 }
 
-h1.projectHeader {
+h1.projectnav {
   font-size: 3vw;
 }
 
@@ -48,8 +48,11 @@ div.projectOverlay{
   left: 50%;
   transform: translate(-50%, 0);
   width: 60%;
+  
   opacity: 0;
   transition: .5s ease;
+
+
 }
 
 
@@ -81,7 +84,7 @@ div.projectContainer img {
   }
 }
 @media screen and (max-width: 1300px) {
-  h1.projectHeader {
+  h1.projectnav {
     font-size: 5vw;
   }
   div.projectGrid{
@@ -106,7 +109,7 @@ div.projectContainer img {
   }
 }
 @media screen and (max-width: 600px) {
-  h1.projectHeader {
+  h1.projectnav {
     font-size: 12vw;
   }
   div.projectGrid{

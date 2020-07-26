@@ -1,32 +1,30 @@
 
 /* test */
 :root {
-  --main-color: rgb(73, 73, 73);
-  --main-bg-color: rgb(231, 230, 230);
+  --main-nav-color: rgb(73, 73, 73);
   --main-body-color: rgb(245, 241, 237);
+
   --main-content-color: rgb(221, 221, 221);
-  --main-dark-content: rgb(223, 223, 223);
+
 
   --main-text-color: black;
   --main-sd-color: rgba(0,0,0,0.6);
   --main-ac-color: rgb(33, 83, 175);
-  --main-mobile-color: rgba(0,0,0,0.9);
 
   --button-grey-background: rgb(184, 184, 184);
 
 }
 [data-theme="dark"] {
 
-  --main-color: rgb(41, 41, 41);
-  --main-bg-color: rgb(70, 70, 70);
+  --main-nav-color: rgb(41, 41, 41);
   --main-body-color: rgb(59, 59, 59);
+
   --main-content-color: rgb(71, 71, 71); 
-  --main-dark-content: rgb(61, 61, 61); 
+  --main-content-header-color: rgb(92, 92, 92);
 
   --main-text-color: white;
   --main-sd-color: rgba(0,0,0,0.6);
   --main-ac-color: rgb(0, 99, 212);
-  --main-mobile-color: rgba(0,0,0,0.9);
 
   --button-grey-background: #383838;
 

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <link rel="shortcut icon" href="\img\LOGO.ico" type="image/x-icon"/> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="\css\styles.css">
+  <link rel="stylesheet" href="\css\navbar.css">
+  <link rel="stylesheet" href="\css\projects.css">
+  <link rel="stylesheet" href="\css\page.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="javascript\jquery-3.5.1.min.js"></script>
+
+
+  <title>Sorting - IJssel koster</title>
+  <meta name="description" content="I got bored... So I decided to learn about sorting algorithms!">
+
+  <meta property="og:title" content="Sorting - IJssel koster">
+  <meta property="og:description" content="I got bored... So I decided to learn about sorting algorithms!">
+  <meta property="og:url" content="http://ijiji.github.io/projects/Sorting%20Animation/page.html">
+  <meta property="og:image" content="\projects\Sorting Animation\img\cover.png">
+
+  <meta name="keywords" content="IJ Koster, IJssel, IJssel Koster, Sorting, Big O Notation, Javascript, JS, JS.P5">
+  <meta name="author" content="IJ Koster">
+
+</head> 
+
+<body style="overflow-x: hidden;">
+  
+  <nav>
+    <ul class="nav">
+      
+      <li class="nav"><a class="nav" id="index" href="/index.html">Projects</a></li>
+      <li class="nav"><a class="nav" id="contact" href="/contact.html">Contact</a></li>
+      
+      <label class="darkModeSwitch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="darkModeSlider"></div>
+      </label>
+    </ul>
+  </nav>
+  <main>
+    <header>
+      <h1>Sorting</h1>
+      <div class="modalBadge">
+        <img src="https://img.shields.io/badge/16/2/2020-4f4f4f"></img>
+        <a href="/contact.html"><img class="badge" src="https://img.shields.io/badge/Developer-IJssel%20Koster-blue?style=flat" style="margin-right: 5px;"></a>
+        <a target="_Blank"href="https://github.com/IJIJI/Me/blob/master/Projects/Sort_Animation/Sort_Animation.js"><img class="badge" src="https://img.shields.io/badge/Github-grey?style=flat&logo=github"style="margin-right: 5px;"></a>
+        
+      </div>
+    </header>
+    <section>
+      <p>So... I got bored. I remembered having watched a<a class="textButton" target="_Blank" href="https://www.youtube.com/watch?v=RGuJga2Gl_k">Tom Scott video</a>about sorting algorithms and decided to have a go at it myself.</p>
+      
+      <iframe style="border: none; border-radius: 5px; box-shadow: 0px 0px 20px rgba(0,0,0,0.4); margin: 30px 10%; height: 400px; width: 80%;" src="sortingAnimation.html"></iframe>
+      
+      <p>I decided to make the animation in Javascript P5, as I had just done a project with it and it would be easy to implement on this website.</p>
+
+      <p>Efficiency of sorting algorithms is indicated with a big O notation. The big O notation indicates how sorting algorithm efficiency increases. <br>Bubble sort, the algorithm used for this animation for example has a big O notation of O(n²). This means that in a worst case scenario the load steps increase exponentially. Bubble sort works by comparing the first and second tower and swapping if necessary then with the second and third etc until everything is sorted. This is by far isn't the fastest way of sorting and an easy upgrade would for example be to use insertion sorting, it would be much faster and not that hard to implement. For a better explanation you'll have to watch<a class="textButton" target="_Blank" href="https://www.youtube.com/watch?v=RGuJga2Gl_k">Tom Scott's video</a>though.</p>
+
+      <p> For a full screen version of the animation,<a target="_Blank" href="sortingAnimation.html" class="textButtonGrey">Click Here.</a></p>
+      
+    </section>
+  </main>
+
+
+<script src="\javascript\darkMode.js"></script>
+</body>
+</html>

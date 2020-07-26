@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <link rel="shortcut icon" href="\img\LOGO.ico" type="image/x-icon"/> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="\css\styles.css">
+  <link rel="stylesheet" href="\css\navbar.css">
+  <link rel="stylesheet" href="\css\projects.css">
+  <link rel="stylesheet" href="\css\page.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="javascript\jquery-3.5.1.min.js"></script>
+
+
+  <title>Matrix Display - IJssel koster</title>
+  <meta name="description" content="At my school we needed surtitle displays for the upcoming production of Carmina Burana. The commercially available options where either too small or too expensive, so... I made my own.">
+
+  <meta property="og:title" content="Matrix Display - IJssel koster">
+  <meta property="og:description" content="At my school we needed surtitle displays for the upcoming production of Carmina Burana. The commercially available options where either too small or too expensive, so... I made my own.">
+  <meta property="og:url" content="http://ijiji.github.io/projects/Matrix-Display/page.html">
+  <meta property="og:image" content="\projects\Matrix-Display\img\cover.jpg">
+
+  <meta name="keywords" content="IJ Koster, IJssel, IJssel Koster, Arduino, Display, LED, Matrix Display, MAX7219, wireless, Carmina Burana, Surtitles">
+  <meta name="author" content="IJ Koster">
+
+</head> 
+
+<body style="overflow-x: hidden;">
+  
+  <nav>
+    <ul class="nav">
+      
+      <li class="nav"><a class="nav" id="index" href="/index.html">Projects</a></li>
+      <li class="nav"><a class="nav" id="contact" href="/contact.html">Contact</a></li>
+      
+      <label class="darkModeSwitch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="darkModeSlider"></div>
+      </label>
+    </ul>
+  </nav>
+  <main>
+    <header>
+      <h1>Matrix Display</h1>
+      <div class="modalBadge">
+        <img src="https://img.shields.io/badge/3/4/2020-4f4f4f"></img>
+        <a href="/contact.html"><img class="badge" src="https://img.shields.io/badge/Developer-IJssel%20Koster-blue?style=flat" style="margin-right: 5px;"></a>
+        <img class="badge" src="https://img.shields.io/badge/Developer-Broes%20Terwey-blue?style=flat" style="margin-right: 5px;">
+        <img class="badge" src="https://img.shields.io/badge/School-red?style=flat"style="margin-right: 5px;">
+        <a target="_Blank"href="https://github.com/IJIJI/LED-Matrix-Display"><img class="badge" src="https://img.shields.io/badge/Github-grey?style=flat&logo=github"style="margin-right: 5px;"></a>
+        
+      </div>
+    </header>
+    <section>
+      <p>At my school we needed surtitle displays for the upcoming production of Carmina Burana. The commercially available options where either too small or too expensive, so... I made my own.</p>
+    
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200404_221552.jpg"><img src="\projects\Matrix-Display\img\IMG_20200404_221552.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+
+      <p>Our screen needed to meet some requirements. First off it needed to be readable. This meant it needed to be quite big, especially when considering our next criteria: It needed to fit the Carmina Burana script, which having sentences with 40 characters meant the screen needed to be quite long too.</p>
+
+      <p>We started off by choosing a way to control the display. At the beginning we considered using simple shift registers, but we ended up just using an 8x8 led controller, namely the MAX7219. Using a shift register would be much more taxing, as the multiplexing would need to be done by the Arduino itself. This was specially a problem as we planned to add wireless communication and an sd card. I won't go into the details of multiplexing, but if your curious you can watch<a target="_Blank" href="https://www.youtube.com/watch?v=uQMUPhyoXoE" class="textButton">this video.</a></p>
+
+      <p>After having selected which LED's we where going to use, we made a prototype. We had multiple wood boards laser cut to different spacings, we ended up going with the largest.</p>
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200406_113346.jpg"><img src="\projects\Matrix-Display\img\IMG_20200406_113346.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200406_113405.jpg"><img src="\projects\Matrix-Display\img\IMG_20200406_113405.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+
+      <p>This ended up being a <b>HUGE</b> amount of work. We only did a 8x6 grid as most of our characters fitted inside that. Having built this proved our concept, it also allowed us to calculate the full length of the display. I also wrote <a target="_Blank" href="https://github.com/IJIJI/LED-Matrix-Display/tree/master" class="textButton">some code,</a>with a simple library, that allowed it to cycle some text. Later I ended up using the Parola library, it has way less documentation and was a lot of work to get working, but works way better.<a target="_Blank" href="https://github.com/IJIJI/LED-Matrix-Display/tree/Parola" class="textButton">It can be found here.</a></p>
+
+      <p>After this I started designing PCB's. They had to include the Arduino, the MAX7219, the LED's of course, and last but not least a way to split the display up in sections. We weren't sure if the signal would reach the last display, as now we knew the led spacing, we knew the total display length would be around 6 meters.</p>
+
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200130_142019.jpg"><img src="\projects\Matrix-Display\img\IMG_20200130_142019.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200130_142026.jpg"><img src="\projects\Matrix-Display\img\IMG_20200130_142026.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+
+      <p>This is why I included solder pads to select the inputs for the panel. It allows me to choose if the data connections going to the MAX7219 come from the previous display, or the Arduino on the current display. To allow the displays to work together I also added an extra data connection between panels. You can choose the protocol between a software serial and I2C with more solder pads.</p>
+
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Matrix-Display\img\BoardV67.png"><img src="\projects\Matrix-Display\img\BoardV67.png" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Matrix-Display\img\SchematicV67.png"><img src="\projects\Matrix-Display\img\SchematicV67.png" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+
+      <p>After having designed them we, of course, made the panels. This still was a lot of soldering work, but way less than the first prototype.</p>
+
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\Matrix-Display\img\WhatsApp Image 2020-03-05 at 15.47.39.jpeg"><img src="\projects\Matrix-Display\img\WhatsApp Image 2020-03-05 at 15.47.39.jpeg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200404_181305.jpg"><img src="\projects\Matrix-Display\img\IMG_20200404_181305.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\Matrix-Display\img\IMG_20200404_181524.jpg"><img src="\projects\Matrix-Display\img\IMG_20200404_181524.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+
+      <p>It all ended up working nicely, displays can easily be chained together and they are very easily readable. I also started work on a wireless control. Although I put an SD card reader on the main PCB I actually ended up putting it on the remote. It made sending commands much easier. I used a modified version of my<a target="_Blank" href="projects.html#TimeStep" class="textButton">TimeStep</a> project.</p>
+
+      <p>This project is not finished and due to the whole corona situation it probably won't be needed any time soon. All the code I have written for the displays is<a target="_Blank" href="https://github.com/IJIJI/LED-Matrix-Display/tree/Parola" class="textButton">available on Github,</a> with the master branch being the test code using the old library and the Parola branch being the new but unfinished code with the Parola Library. On the github page you can also find<a target="_Blank" href="https://github.com/IJIJI/LED-Matrix-Display/tree/Parola/Prototyp2" class="textButton">all the files used in the second prototype,</a>including gerber files.</p>
+    </section>
+  </main>
+
+
+<script src="\javascript\darkMode.js"></script>
+</body>
+</html>
