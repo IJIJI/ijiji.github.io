@@ -9,6 +9,13 @@ main {
   
 }
 
+@media screen and (max-width: 600px) {
+  main {
+    --main-padding: 30px;
+    --main-corner-radius: 0px;
+  }
+}
+
 section ul {
   text-align: left;
 }
@@ -29,15 +36,6 @@ header {
   border-top-right-radius: var(--main-corner-radius);
 }
 
-@media screen and (max-width: 600px) {
-  main {
-    border-radius: 0;
-  }
-  header {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-}
 
 section {
   padding: var(--main-padding);
@@ -114,6 +112,6 @@ div.modalBadge img {
   .galleryRow a{
     padding: 10px;
     /* max-width: calc(100%/4 - 2*10px); */
-    width: calc(100%/2 - 2*10px);
+    width: calc(100% - 2*10px);
   }
 }
