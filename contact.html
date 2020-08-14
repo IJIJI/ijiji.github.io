@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
 
 
@@ -8,8 +8,11 @@
 
   <link rel="stylesheet" href="css\styles.css">
   <link rel="stylesheet" href="css\navbar.css">
+  <link rel="stylesheet" href="css\contact.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
+  <script src="https://kit.fontawesome.com/a651593f75.js" crossorigin="anonymous"></script>
   <script src="javascript\jquery-3.5.1.min.js"></script>
 
 
@@ -26,9 +29,8 @@
   <meta name="author" content="IJ Koster">
 
 </head> 
-
-<body style="overflow-x: hidden;">
-  
+<body>
+      
   <nav>
     <ul class="nav">
       
@@ -41,14 +43,48 @@
       </label>
     </ul>
   </nav>
-
   
-  <div style="height: 300vh"></div>
+  <div class="contactDiv">
+    <div></div>
+    <div class="contactGrid">
+      <div class="contactContent">
+        <img src="img\Profile.jpg">
+        <div class="contactText">
+          <h1 class="linkContactText" >IJssel Koster</h1>
+          <ul>
+            <li><a class="linkContactText" href="https://www.montessorilyceumamsterdam.nl/" target="_Blank"><span class="fas fa-graduation-cap"></span> Montessori Lyceeum Amsterdam</a></li>
+            <li><a class="linkContactText" href="https://github.com/IJIJI" target="_Blank"><span class="fab fa-github"></span> IJIJI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div></div>
+    <div></div>
+    <div class="contactGrid">
+      <div class="contactContent">
+        <h1 class="contactHeader">Contact</h1>
+        <div class="contactForm">
+          <form action="https://send.pageclip.co/C1tbEGiWah9TJlW0pa7w7QOt5eAxpWeB/Contact_Form" class="pageclip-form" method="post">
+            <!-- Replace these inputs with your own. Make sure they have a "name" attribute! -->
+          
+            <!-- It looks like you are creating a contact form. These email and subject fields are special -->
+            <!-- See https://pageclip.co/docs#special-fields for more info -->
+            <input id="fName" type="text" name="name" placeholder="Name" />
+            <input id="fEmail" type="email" name="email" placeholder="name@domain.com" />
+            <textarea style="height: 215px;" id="fText" name="text" placeholder="Write something!"></textarea>
+          
+            <!-- This button will have a loading spinner. Keep the inner span for best results. -->
+            <button id="fSubmit" type="submit" class="pageclip-form__submit">
+              <span>Send</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
 
-
-<script src="javascript\darkMode.js"></script>
+  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+  <script src="javascript\darkMode.js"></script>
 </body>
 </html>
-
-
-

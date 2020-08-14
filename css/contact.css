@@ -1,0 +1,171 @@
+body{
+  overflow: hidden;
+}
+
+.contactDiv {
+  display: grid;
+  grid-template-columns: 30px 25vw 15px 15px auto 30px;
+  /* grid-template-rows: 45vh; */
+  top: 0;
+}
+
+.contactGrid {
+  /* border: black 1px dotted; */
+  height: 92.5vh;
+  position: relative;
+  z-index: 0;
+}
+
+.contactContent {
+  background-color: var(--main-content-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 100%;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+  border-radius: 7px;
+  
+}
+
+.contactContent img{
+  position: absolute;
+  width: 70%;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+}
+
+.contactText ul{
+  position: absolute;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  width: 100%;
+}
+.contactText li {
+  padding-bottom: 6px;
+}
+
+
+.contactText {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, 0);
+  text-align: center;
+}
+.contactText a{
+  text-decoration: none;
+  color: var(--main-text-color);
+ 
+}
+
+.contactHeader {
+  font-size: 35px;
+  position: absolute;
+  top: 2%;
+  left: 5%;
+}
+
+h1.linkContactText {
+  font-size: 3vw;
+ 
+}
+a.linkContactText {
+  font-size: 1vw;
+  width: 100%;
+}
+
+/* ? Contact form here vv */
+
+input[type=text], input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: none;
+}
+
+button[type=submit] {
+  background-color: var(--main-ac-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type=submit]:hover {
+  background-color: rgb(0, 58, 124);;
+}
+
+.contactForm {
+  position: absolute;
+  border-radius: 7px;
+  background-color: var(--main-dark-content);
+  padding: 20px;
+  margin: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 90px;
+}
+
+/* ? until here */
+@media only screen and (max-width: 600px) {
+  body{
+    overflow: unset;
+  }
+  .contactDiv {
+    margin-top: 14vw;
+    grid-template-columns: 15px auto 15px;
+  }
+  .contactGrid {
+    /* border: black 1px dotted; */
+    height: 80vh;
+  }
+  .contactContent{
+    height: 75vh;
+  }
+  .contactContent img{
+    position: absolute;
+    width: 85%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  }
+  .contactText {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+    text-align: center;
+  }
+  h1.linkContactText {
+    font-size: 13vw;
+  }
+  a.linkContactText {
+    font-size: 4.5vw;
+  }
+  .contactHeader {
+    font-size: 35px;
+    position: absolute;
+    top: 0%;
+    left: 6%;
+  }
+}
