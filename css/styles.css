@@ -5,6 +5,7 @@
   --main-body-color: rgb(245, 241, 237);
 
   --main-content-color: rgb(221, 221, 221);
+  --main-dark-content: rgb(223, 223, 223);
   --main-content-header-color: rgb(194, 194, 194);
 
   --main-text-color: black;
@@ -21,6 +22,7 @@
 
   --main-content-color: rgb(71, 71, 71); 
   --main-content-header-color: rgb(92, 92, 92);
+  --main-dark-content: rgb(61, 61, 61); 
 
   --main-text-color: white;
   --main-sd-color: rgba(0,0,0,0.6);
