@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <link rel="shortcut icon" href="\img\LOGO.ico" type="image/x-icon"/> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="\css\styles.css">
+  <link rel="stylesheet" href="\css\navbar.css">
+  <link rel="stylesheet" href="\css\projects.css">
+  <link rel="stylesheet" href="\css\page.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="javascript\jquery-3.5.1.min.js"></script>
+
+
+  <title>NTP-Clock - IJssel koster</title>
+  <meta name="description" content="For livestreaming we neaded an accurate rack mounted clock. I decided to build one.">
+
+  <meta property="og:title" content="NTP-Clock - IJssel koster">
+  <meta property="og:description" content="For livestreaming we neaded an accurate rack mounted clock. I decided to build one.">
+  <meta property="og:url" content="http://ijiji.github.io/projects/NTP-CLOCK/page.html">
+  <meta property="og:image" content="\projects\NTP-CLOCK\img\cover.png">
+
+  <meta name="keywords" content="IJ Koster, IJssel, IJssel Koster, 3D design, 3D printing, C++, arduino, diy, NTP, NTP clock, clock, rack, rackmounted, network, network clock">
+  <meta name="author" content="IJ Koster">
+
+</head> 
+
+<body style="overflow-x: hidden;">
+  
+  <nav>
+    <ul class="nav">
+      
+      <li class="nav"><a class="nav" id="index" href="/index.html">Projects</a></li>
+      <li class="nav"><a class="nav" id="contact" href="/contact.html">Contact</a></li>
+      
+      <label class="darkModeSwitch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="darkModeSlider"></div>
+      </label>
+    </ul>
+  </nav>
+  <main>
+    <header>
+      <h1>NTP Clock</h1>
+      <div class="modalBadge">
+        <img src="https://img.shields.io/badge/2/1/2021-4f4f4f"></img>
+        <a href="/contact.html"><img src="https://img.shields.io/badge/Developer-IJssel%20Koster-blue?style=flat"></a>
+        <img src="https://img.shields.io/badge/School-red?style=flat">
+        <a target="_Blank"href="https://www.thingiverse.com/thing:4706520"><img src="https://img.shields.io/badge/Thingiverse-%23248bfb"></a>
+        <a target="_Blank"href="https://github.com/IJIJI/NTP-Clock"><img class="badge" src="https://img.shields.io/badge/Github-grey?style=flat&logo=github"style="margin-right: 5px;"></a>
+      </div>
+    </header>
+    <section>
+      <p>Lately, I’ve been working a lot on improving the live streaming equipment we have at my school. One of the problems we were having, was that we didn’t really have a good time indication. We had been using<a target="_Blank" href="https://play.google.com/store/apps/details?id=de.kjpm.android.ledclock" class="textButton">this app</a>on a phone, but that meant one of us couldn’t use their phone and we also didn’t really have a good place to mount it. </p>
+      <br>
+      <p>I started by building a prototype, I decided that for me the best way to get accurate time would be the<a target="_Blank" href="https://en.wikipedia.org/wiki/Network_Time_Protocol" class="textButton">NTP protocol</a>as we already had a good network set up and I had an Arduino Ethernet shield lying around. I also decided to throw in an<a target="_Blank" href="https://en.wikipedia.org/wiki/Real-time_clock" class="textButton">RTC (Real Time Clock)</a>to enable me to keep accurate time without an ethernet connection. This was because our network switch takes a couple minutes to start up, and because I had heard stories about the NTP protocol being very slow. I was afraid it would take too long to get the time. This ended up not being a problem and an RTC wouldn’t have been necessary.</p>
+      <p>As a way to show the time I went for a<a target="_Blank" href="https://www.aliexpress.com/item/33031122936.html" class="textButton">1.8-inch display based on the ST7735</a>as I already had them lying around for a different project. They are made to be used in portrait mode so they have terrible viewing angles if you look at it from a high angle. As I used it in landscape mode, this meant that it’s way less see-able from the left.</p>
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\IMG_20201203_190854.jpg" ><img src="\projects\NTP-CLOCK\img\IMG_20201203_190854.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\IMG_20201219_123847.jpg" ><img src="\projects\NTP-CLOCK\img\IMG_20201219_123847.jpg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+      <p>Optimizing the code for this project was easily the hardest part. In the beginning, I was using a<a target="_Blank" href="https://github.com/adafruit/Adafruit-ST7735-Library" class="textButton">display library by Adafruit,</a>which was very slow, forcing me to optimize the living s**** out of the functions that update the display, as writing the display would take more than a second making the clock skip seconds. I switched to a<a target="_Blank" href="https://github.com/Bodmer/TFT_ST7735" class="textButton">library for the ST7735 by Bodmer,</a>which ended up being way faster and resolved much of my problems. Then I started implementing the NTP library, which caused even more problems. First I had to set up code that tried connecting to the internet at bootup, with visual feedback, and then I made it possible to update time (or connect to the internet) while the device is already running. I also added an indication for when the device has been connected to the internet, and when for when an NTP has been sent.</p>
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\IMG_20210102_134503.jpg" ><img src="\projects\NTP-CLOCK\img\IMG_20210102_134503.jpg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\WhatsApp Image 2021-01-02 at 13.57.32 (1).jpeg" ><img src="\projects\NTP-CLOCK\img\WhatsApp Image 2021-01-02 at 13.57.32 (1).jpeg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+      <p>One of the things I struggled with is getting accurate time. Every time I’d receive an NTP package and update the time, it would be off from 0-1 second. I later found out that it was because I was writing the seconds to the RTC, but not fractions of seconds. As the RTC doesn’t support milliseconds, I resolved this by setting a variable to the time plus one second and wait till the remainder of the second has passed (1000 milliseconds – passed milliseconds) and then write the time to the RTC.<a target="_Blank" href="https://forum.arduino.cc/index.php?topic=526792.0" class="textButton">A better explanation can be found here.</a></p>
+      <p>When I was about halfway with the code, I started building an enclosure. I designed it to fit in a<a target="_Blank" href="https://en.wikipedia.org/wiki/Rack_unit" class="textButton">1u rack mount.</a>I planned to laser cut the square part of the enclosure, but here in the Netherlands another lockdown happened and I wouldn’t be able to access the cutter for some time. As the deadline I had for this project was nearby, I decided to print it and it actually turned out quite nice.</p>
+      <div class="galleryRow">
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\WhatsApp Image 2021-01-02 at 13.57.32.jpeg" ><img src="\projects\NTP-CLOCK\img\WhatsApp Image 2021-01-02 at 13.57.32.jpeg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\IMG-20201221-WA0003.jpeg" ><img src="\projects\NTP-CLOCK\img\IMG-20201221-WA0003.jpeg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\IMG-20201221-WA0002.jpeg" ><img src="\projects\NTP-CLOCK\img\IMG-20201221-WA0002.jpeg" class="modalImage" style="width: 100%;"></img></a>
+        <a target="_Blank" href="\projects\NTP-CLOCK\img\IMG-20201221-WA0004.jpeg" ><img src="\projects\NTP-CLOCK\img\IMG-20201221-WA0004.jpeg" class="modalImage" style="width: 100%;"></img></a>
+      </div>
+      <p>All in all this project was quite successful and I’m happy with the results. In the future, I will add stopwatch functionality, as I’ve already added the buttons anyway, and I might add OSC implementation. OSC capability would mean you could start timers, stopwatches, and even display messages on the display over the network. All code is available on<a target="_Blank" href="https://github.com/IJIJI/NTP-Clock" class="textButton">Github</a>and the STL’s are downloadable on<a target="_Blank" href="https://www.thingiverse.com/thing:4706520" class="textButton">Thingiverse.</a> If you are interested in building this and need help, feel free to<a target="_Blank" href="/contact.html" class="textButton">contact me.</a></p>
+    </section>
+  </main>
+  
+
+<script src="\javascript\darkMode.js"></script>
+</body>
+</html>
